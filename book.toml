@@ -1,6 +1,6 @@
 [book]
 authors = ["adam"]
-language = "en"
+language = "zh"
 multilingual = false
 src = "src"
-title = "程序设计入门\""
+title = "Rust学习笔记"
