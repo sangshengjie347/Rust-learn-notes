@@ -3,4 +3,4 @@ authors = ["adam"]
 language = "zh"
 multilingual = false
 src = "src"
-title = "Rust学习笔记"
+title = "快速入手Rust"
