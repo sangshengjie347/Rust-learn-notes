@@ -6,6 +6,7 @@
     - [换源安装](c1.2.md)
     - [在线开发](c1.3.md)
 - [Hello,world!](c3.md)
+- [使用Clion、Pycharm、IDEA进行开发](c7.md)
 - [打印](c4.md)  
 - [常见的编程概念](c2.md)
     - [注释](c2.1.md)
@@ -17,5 +18,6 @@
 - [Shadowing](c5.md)
 - [所有权](c6.md)
     - [堆、栈和指针](c6.1.md)
-- [使用Clion、Pycharm、IDEA进行开发](c7.md)
+    - [Copy and Clone](c6.2.md)
+    - [所有权在函数中的应用](c6.3.md)
 
