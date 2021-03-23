@@ -1,0 +1,1221 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>快速入手Rust</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="update.html">更新说明</a></li><li class="chapter-item expanded "><a href="c1.html"><strong aria-hidden="true">1.</strong> 基础介绍</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c1.1.html"><strong aria-hidden="true">1.1.</strong> 安装Rust</a></li><li class="chapter-item expanded "><a href="c1.2.html"><strong aria-hidden="true">1.2.</strong> 换源安装</a></li><li class="chapter-item expanded "><a href="c1.3.html"><strong aria-hidden="true">1.3.</strong> 在线开发</a></li></ol></li><li class="chapter-item expanded "><a href="c3.html"><strong aria-hidden="true">2.</strong> Hello,world!</a></li><li class="chapter-item expanded "><a href="c7.html"><strong aria-hidden="true">3.</strong> 使用Clion、Pycharm、IDEA进行开发</a></li><li class="chapter-item expanded "><a href="c4.html"><strong aria-hidden="true">4.</strong> 打印</a></li><li class="chapter-item expanded "><a href="c2.html"><strong aria-hidden="true">5.</strong> 常见的编程概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c2.1.html"><strong aria-hidden="true">5.1.</strong> 注释</a></li><li class="chapter-item expanded "><a href="c2.2.html"><strong aria-hidden="true">5.2.</strong> 变量</a></li><li class="chapter-item expanded "><a href="c2.3.html"><strong aria-hidden="true">5.3.</strong> 类型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c2.3.1.html"><strong aria-hidden="true">5.3.1.</strong> 基本类型</a></li><li class="chapter-item expanded "><a href="c2.3.2.html"><strong aria-hidden="true">5.3.2.</strong> 复合类型</a></li><li class="chapter-item expanded "><a href="c2.3.3.html"><strong aria-hidden="true">5.3.3.</strong> 类型推导</a></li></ol></li><li class="chapter-item expanded "><a href="c2.4.html"><strong aria-hidden="true">5.4.</strong> 函数</a></li><li class="chapter-item expanded "><a href="c2.5.html"><strong aria-hidden="true">5.5.</strong> 控制流</a></li></ol></li><li class="chapter-item expanded "><a href="c5.html"><strong aria-hidden="true">6.</strong> Shadowing</a></li><li class="chapter-item expanded "><a href="c6.html"><strong aria-hidden="true">7.</strong> 所有权</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c6.1.html"><strong aria-hidden="true">7.1.</strong> 堆、栈和指针</a></li><li class="chapter-item expanded "><a href="c6.2.html"><strong aria-hidden="true">7.2.</strong> Copy and Clone</a></li><li class="chapter-item expanded "><a href="c6.3.html"><strong aria-hidden="true">7.3.</strong> 所有权在函数中的应用</a></li><li class="chapter-item expanded "><a href="c6.4.html"><strong aria-hidden="true">7.4.</strong> 引用和可变引用</a></li><li class="chapter-item expanded "><a href="c6.5.html"><strong aria-hidden="true">7.5.</strong> Slices</a></li></ol></li><li class="chapter-item expanded "><a href="c8.html"><strong aria-hidden="true">8.</strong> 结构体</a></li><li class="chapter-item expanded "><a href="c9.html"><strong aria-hidden="true">9.</strong> 枚举</a></li><li class="chapter-item expanded "><a href="c10.html"><strong aria-hidden="true">10.</strong> 实现结构体和枚举</a></li><li class="chapter-item expanded "><a href="c11.html"><strong aria-hidden="true">11.</strong> 泛型</a></li><li class="chapter-item expanded "><a href="c12.html"><strong aria-hidden="true">12.</strong> Option</a></li><li class="chapter-item expanded "><a href="c13.html"><strong aria-hidden="true">13.</strong> Result</a></li><li class="chapter-item expanded "><a href="c14.html"><strong aria-hidden="true">14.</strong> HashMap和其他集合</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">快速入手Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="更新说明"><a class="header" href="#更新说明">更新说明</a></h1>
+<p><a href="https://gitee.com/sangshengjie802/rust_sample_code">示例源码</a></p>
+<p><strong><em>2021/3/14 21:04</em> 更新 <code>1.基础介绍</code></strong></p>
+<p><strong><em>2021/3/15 11:20</em> 更新 <code>2.Hello,world!</code></strong></p>
+<p><strong><em>2021/3/15 13:04</em> 更新 <code>3.使用Clion、Pycharm、IDEA进行开发</code></strong></p>
+<p><strong><em>2021/3/15 15:21</em> 更新 <code>4.打印</code></strong></p>
+<p><strong><em>2021/3/15 17:47</em> 更新 <code>5.常见编程概念</code></strong></p>
+<p><strong><em>2021/3/15 18:59</em> 更新 <code>6.Shadowing</code></strong></p>
+<p><strong><em>2021/3/15 23:13</em> 更新 <code>7.所有权</code></strong></p>
+<p><strong><em>2021/3/22 21:52</em> 更新 <code>8.结构体</code></strong></p>
+<p><strong><em>2021/3/22 22:08</em> 更新 <code>9.枚举</code></strong></p>
+<p><strong><em>2021/3/22 22:30</em> 更新 <code>10.实现结构体和枚举</code></strong></p>
+<p><strong><em>2021/3/22 22:49</em> 更新 <code>11.泛型</code></strong></p>
+<p><strong><em>2021/3/23 12:56</em> 更新 <code>12.Option</code></strong></p>
+<p><strong><em>2021/3/23 15:58</em> 更新 <code>13.Result</code></strong></p>
+<p><strong><em>2021/3/23 21:15</em> 更新 <code>14.HashMap和其他集合</code></strong></p>
+<h1 id="基础介绍"><a class="header" href="#基础介绍">基础介绍</a></h1>
+<p><br/>Rust是一门系统编程语言，专注于安全，尤其是并发安全，支持函数式和命令式以及泛型等编程范式的多范式语言。</p>
+<p><br/>Rust在语法上和C++类似，但是设计者想要在保证性能的同时提供更好的内存安全。 </p>
+<p><br/>Rust最初是由Mozilla研究院的Graydon Hoare设计创造，然后在Dave Herman， Brendan Eich以及很多其他人的贡献下逐步完善的。</p>
+<h1 id="安装rust"><a class="header" href="#安装rust">安装Rust</a></h1>
+<p><br/>Rust学习我们首先要安装Rust，如果你不想在本地安装Rust你也可以通过浏览器在线进行Rust代码的开发。</p>
+<p><br/>当然随着后续的内容增加，在线编写代码并不能满足我们的需求，到时我们还是需要进行本地安装。</p>
+<h2 id="本地安装"><a class="header" href="#本地安装">本地安装</a></h2>
+<p>我们通过<code>rustup</code>来下载Rust，可以参考<a href="https://www.rust-lang.org/tools/install">官网安装方式</a>
+<img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210314220249.png" alt="" /></p>
+<pre><code class="language-shell">#以Linux或者Mac为例
+#打开终端输入下面一行命令，等待安装
+#出现安装选项，选择1回车或者默认回车
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre>
+<p>Windows安装可以参考官网，这边就不再介绍。</p>
+<h2 id="检查是否安装成功"><a class="header" href="#检查是否安装成功">检查是否安装成功</a></h2>
+<p>我们在终端输入<code>cargo --version</code> 和 <code>rustc --version</code> 来查看我们是否已经成功安装
+<br/>如下图所示，表示你已经安装成功了。</p>
+<p><img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210314222309.png" alt="" /></p>
+<h1 id="换源安装"><a class="header" href="#换源安装">换源安装</a></h1>
+<ul>
+<li>通过官网的安装方式，在国内可能会出现安装慢，或者连接不成功的问题，我们可以先换源再进行安装。</li>
+</ul>
+<h2 id="中科大镜像源"><a class="header" href="#中科大镜像源">中科大镜像源</a></h2>
+<pre><code class="language-shell">export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+curl https://sh.rustup.rs -sSf | sh
+</code></pre>
+<h2 id="清华镜像源"><a class="header" href="#清华镜像源">清华镜像源</a></h2>
+<pre><code class="language-shell">export RUSTUP_DIST_SERVER=https://mirrors.tuna.edu.cn/rustup
+export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.edu.cn/rustup/rustup
+curl https://sh.rustup.rs -sSf | sh
+</code></pre>
+<h2 id="检查是否安装成功-1"><a class="header" href="#检查是否安装成功-1">检查是否安装成功</a></h2>
+<p>同之前官网安装一样，我们换源安装后，也进行检查，是否安装成功。</p>
+<p>我们在终端输入<code>cargo --version</code> 和 <code>rustc --version</code> 来查看我们是否已经成功安装
+<br/>如下图所示，表示你已经安装成功了。</p>
+<p><img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210314222309.png" alt="" /></p>
+<p><code>恭喜你，让我们进入Rust的世界吧！</code></p>
+<h1 id="在线开发"><a class="header" href="#在线开发">在线开发</a></h1>
+<p>前面介绍了除了本地安装Rust，我们还可以通过浏览器打开<a href="https://play.rust-lang.org/">RustPlaygroud</a>
+进行在线开发。
+<img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210314221305.png" alt="" />
+它让我们可以随时上手进行Rust学习和开发，方便快捷。</p>
+<ul>
+<li>点击<code>Run</code>运行程序</li>
+<li>根据不同的需求切换<code>Debug</code> 和 <code>Release</code> 模式</li>
+<li>点击 <code>share</code> 来分享你的代码</li>
+<li><code>Tools</code> 中的 <code>Rustfmt</code> 可以格式化我们的代码 其他可以自行摸索</li>
+<li><code>Config</code> 中可以更改主题等。</li>
+</ul>
+<h1 id="第一个程序helloworld"><a class="header" href="#第一个程序helloworld">第一个程序Hello,world!</a></h1>
+<p>无论什么语言，第一个程序都应该来一个Hello,world!
+Rust文件是以.rs扩展名结尾的。我们这边直接使用<code>Cargo</code>,它是Rust的构建系统和包管理器。我们之后都使用Cargo来管理我们的项目。</p>
+<pre><code class="language-consle"># 首先创建一个文件夹存放我们的源代码 (以Mac系统为例，Windows系统略有区别)
+mkdir learn_rust
+cd learn_rust
+
+# 创建一个新的Rust项目(项目名小写用下划线连接)
+cargo new l_hello_world
+cd l_hello_world
+
+# 我们看下生成的项目结构
+tree 
+.
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    └── main.rs
+
+# 我们目前只会使用到src目录下的main.rs 其他的文件我们后续再详细介绍它
+
+# 用vim打开并编辑它，会看到它帮我们生成了一个打印hello world的程序
+./target/debug/hello_cargo  # 运行可执行文件 运行成功可以看到控制台打印Hello,world!
+
+</code></pre>
+<h3 id="编译文件"><a class="header" href="#编译文件">编译文件</a></h3>
+<p><code>cargo build</code> 这个命令会创建一个可执行文件 它存放在 target/debug/hello_cargo</p>
+<pre><code class="language-consle">./target/debug/hello_cargo  /Mac或Linux操作系统下运行可执行文件
+</code></pre>
+<p>运行成功的话会在控制台打印<code>Hello,world!</code></p>
+<h3 id="编译并运行"><a class="header" href="#编译并运行">编译并运行</a></h3>
+<p><code>cargo run</code> 这个命令会编译并运行生成的可执行文件</p>
+<h3 id="检查代码"><a class="header" href="#检查代码">检查代码</a></h3>
+<p><code>cargo check</code> 检查代码确保可以编译但不生成可执行的文件</p>
+<h3 id="发布"><a class="header" href="#发布">发布</a></h3>
+<p><code>cargo build --release</code> 当项目最终准备发布的时候，我们使用这个命令来优化编译项目，生成的可执行文件不在之前说的debug里面，而是在新生成的release文件夹里，优化可以使代码运行的更加快，但会消耗更长的编译时间。</p>
+<br/>
+<pre><pre class="playground"><code class="language-rust">//main.rs
+fn main() {  
+    println!(&quot;Hello,world!&quot;);   //println!是一个打印宏 类似于函数帮我们实现某一些功能 宏后面都有一个！
+}
+</code></pre></pre>
+<h1 id="为什么使用clionidea或者pycharm"><a class="header" href="#为什么使用clionidea或者pycharm">为什么使用Clion、IDEA或者Pycharm</a></h1>
+<ul>
+<li>
+<p>很多学习Rust的朋友可能之前都是开发JAVA或者Python，不管快捷键还是个人一些爱好设置，如字体主题等等都习惯了，突然学习Rust就要换其他的IDE确实有点不方便。</p>
+</li>
+<li>
+<p>同时呢，多个IDE切换来切换去的不够友好，相较于vscode和clion我个人更喜欢IDEA，当然Clion其实和IDEA没多大区别。</p>
+</li>
+<li>
+<p>可能很多人说IDEA或者Pycharm不可以进行调试，那你无需担心，现在只需要下载对应的一个插件就能正常调试了。</p>
+</li>
+</ul>
+<h1 id="如何使用clionpycharm或者idea进行开发"><a class="header" href="#如何使用clionpycharm或者idea进行开发">如何使用Clion、Pycharm或者IDEA进行开发</a></h1>
+<ol>
+<li>
+<p>首先你需要先在电脑<strong>下载安装配置好Rust</strong>，可以查看我之前的关于Rust<a href="https://blog.csdn.net/qq_28687433/article/details/114437994">换源快速安装</a>
+的文章，四行代码即可快速安装（<strong>Linux和Mac操作系统</strong>）。Win操作系统如何安装可以自行查找，网上也有。</p>
+</li>
+<li>
+<p>下载并安装Pycharm或者IDEA(自行查看如何操作，后续会分享出来，大多数人可能已经安装好了，所以可以跳过)</p>
+</li>
+<li>
+<p>打开我们下载好的IDE，在插件中下载并安装下图三个插件。第一个是调试的插件，其实我们只需要下载Rust这个插件，然后重启，调试插件，在我们用到它的时候系统会提示我们下载安装。Toml是Rust配置文件的格式，下载Rust插件会自动下载它，如果没有自动下载，大家手动下载一下。
+<img src="https://img-blog.csdnimg.cn/20210306133608449.png" alt="在这里插入图片描述" /></p>
+</li>
+<li>
+<p>下载完成后重启IDEA，新建项目，我们选择Rust,第一次打开Standard library会提示我们下载，我们点击下载即可，然后选择application就可以进行开发了，程序会自动帮我们cargo new 一个新项目，如果你要创建<strong>lib.rs</strong>则可以选择Library。
+<img src="https://img-blog.csdnimg.cn/20210306133846346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4Njg3NDMz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+</li>
+</ol>
+<h1 id="使用快捷键快速开发"><a class="header" href="#使用快捷键快速开发">使用快捷键快速开发</a></h1>
+<p><strong>很多开发JAVA或者Python我们用到的快捷功能，我们都同样可以用在Rust中，大家可以自行探索。</strong></p>
+<h1 id="打印"><a class="header" href="#打印">打印</a></h1>
+<p>我们刚刚学习了第一个Rust程序打印Hello，world!我们现在来介绍一下print。 println!和print！都是宏，打印到控制台，但是println!多了一个<code>ln</code>，它会打印后换行，而print!不会。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 5;
+    let y = 6;
+    //下面两个打印 打印在两行
+    println!(&quot;x is {}&quot;, x);
+    println!(&quot;y is {}&quot;, y);
+    let a = 1;
+    let b = 2;
+    //下面两个打印 打印在同一行
+    print!(&quot;a is {}&quot;, a);
+    print!(&quot;b is {}&quot;, b);
+}
+</code></pre></pre>
+<h2 id=""><a class="header" href="#">{}</a></h2>
+<p>println!中的<code>{}</code>里面是类似于占位符，将位置占住，然后将变量的值存进去，如果多个变量，就需要多个<code>{}</code>。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 1;
+    let b = 'B';
+    let c = true;
+    println!(&quot;a is {}, b is {}, c is {}&quot;, a, b, c); //多个变量的时候注意传递变量的顺序
+}
+</code></pre></pre>
+<h2 id="-和-"><a class="header" href="#-和-">{:?} 和 {:#?}</a></h2>
+<p>在rust中一些简单的变量我们可以使用<code>{}</code>打印，有些变量却不可以，这时候我们需要使用<code>Debug Print </code>，它打印有时候是不漂亮的，我们可以使用<code>{:?} </code>和 <code>{:#?}</code></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let tup = (1, 2, 3, 4);
+    let arr = [5, 6, 7, 8];
+    //println!(&quot;tup is {}, arr is {}&quot;, tup, arr);
+    /*   Compiling playground v0.0.1 (/playground)
+         error[E0277]: `({integer}, {integer}, {integer}, {integer})`
+         doesn't implement `std::fmt::Display`
+    */
+    //对于一些数据类型并不能直接使用{}打印，我们可以使用{:?}和{:#?}进行打印
+    println!(&quot;tup is {:?}&quot;, tup);
+    println!(&quot;tup is {:#?}&quot;, tup); //相较于上一个打印出来更加的好看
+}
+</code></pre></pre>
+<p><code>{}</code>用于显示打印，<code>{:?}</code>用于调试打印，<code>{:#?}</code>可以使打印更加的好看。</p>
+<h2 id="拓展"><a class="header" href="#拓展">拓展</a></h2>
+<p>添加 \n 将会产生一个新行，而 \t 将会产生一个Tab。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;\thello,world!\nOther!&quot;);
+    //如果想打印\n或者\t 多加一个\即可
+    println!(&quot;\\thello,world!\\nOther!&quot;);
+    //如果有很多这样的转义字符或者&quot;&quot;我们可以使用r#&quot; &quot;#的组合
+    println!(r#&quot;aaaaa,&quot;\taaaaa\n&quot;&quot;#);
+}
+</code></pre></pre>
+<h1 id="常见编程概念"><a class="header" href="#常见编程概念">常见编程概念</a></h1>
+<p><strong>第二章主要给大家介绍常见的一些编程概念</strong>！</p>
+<p>在C、C++、JAVA等几乎所有常见编程语言共有的一些基础概念。如<code>注释、变量、函数、数据类型、控制流</code>等，同时了解它们在Rust中如何使用！</p>
+<h1 id="注释"><a class="header" href="#注释">注释</a></h1>
+<h2 id="什么是注释"><a class="header" href="#什么是注释">什么是注释</a></h2>
+<p>注释帮助程序员理解代码，它并不是给电脑看的，只是辅助程序员理解代码，使得程序员一眼就能看懂某部分代码实现的功能。</p>
+<h2 id="单行注释"><a class="header" href="#单行注释">单行注释</a></h2>
+<ul>
+<li>单行注释用<code>//</code>表示 从这个<code>//</code>往右这一行所有的内容编译器都会忽略。</li>
+</ul>
+<h2 id="多行注释"><a class="header" href="#多行注释">多行注释</a></h2>
+<ul>
+<li>多行注释用<code>/* */</code>表示，<code>/* */</code>里面包的内容编译器都会忽略。</li>
+</ul>
+<h2 id="示例代码"><a class="header" href="#示例代码">示例代码</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    //这是一个单行注释，它可以放在代码的上面
+    println!(&quot;Hello,world!&quot;); //控制台打印Hello,world!
+    
+    println!(&quot;{}&quot;, 3+/*我们甚至可以这样使用注释*/1+/*2*/2+/*4*/1);  
+    //运行后可以看看它的值是否和你想的一致 
+}   //这是一个单行注释 它也可以放在代码后面
+
+/*
+    这是一个多行注释
+    里面的内容编译器都会忽略
+    对于一个非常长的注释
+    多行注释会非常的有用
+*/
+</code></pre></pre>
+<h2 id="文档注释"><a class="header" href="#文档注释">文档注释</a></h2>
+<p>后续我们还会讲到一种注释<code>文档注释</code>，不过目前大家不需要了解它，我们会在后面的内容中讲到。</p>
+<h1 id="变量"><a class="header" href="#变量">变量</a></h1>
+<p>在编程语言中，变量无处不在，相较于其他语言，Rust的变量默认是<code>不可改变</code>的，一旦被定义了，就不可以再修改它的值。</p>
+<p>当然这是在默认情况下，我们也可以通过<code>关键字</code>来将它声明为可变变量。</p>
+<blockquote>
+<p>关键字： Rust中也有很多关键字，这些关键字不可以当做变量或者函数的名称。它只能够被语言本身所使用，大部分的关键字都是有意义的，还有一些关键字是为将来添加的功能所保留的。</p>
+</blockquote>
+<h2 id="变量声明"><a class="header" href="#变量声明">变量声明</a></h2>
+<p>通过<code>let</code>关键字来声明一个变量，它默认是不可以改变的。而且一旦声明，它的<code>类型不可以改变</code>，不管你是不可变变量还是可变变量，它们的类型必须保持一致。</p>
+<p>我们后面会介绍<code>shadowing</code>，它可以改变值及其类型，不过意义已经改变了，我们后续讲到shadowing再具体介绍。</p>
+<h2 id="示例代码-1"><a class="header" href="#示例代码-1">示例代码</a></h2>
+<pre><code class="language-rust does_not_compile ignore">//1.变量默认不可以改变 不能改变它的值 -&gt; 编译不通过
+fn main() {
+    //将x绑定到5上后，默认是不可以改变的，我们不能再改变x的值
+    let x = 1 ;  
+    println(&quot;x is {}&quot;, x);
+    x = 2;  //不能改变它的值
+    println(&quot;x is {}&quot;, x);
+    x = &quot;AAAA&quot;;s  //不能改变类型
+    println(&quot;x is {}&quot;, x);
+}
+
+</code></pre>
+<br/>
+<pre><pre class="playground"><code class="language-rust">//2.通过mut关键字来将不可变变量改变为可变变量 -&gt; 编译通过
+fn main() {
+    let mut x = 1;
+    println!(&quot;x is {}&quot;, x);
+    x = 2;
+    println!(&quot;x is {}&quot;, x);
+}
+</code></pre></pre>
+<h1 id="类型"><a class="header" href="#类型">类型</a></h1>
+<p>在Rust中也有很多类型，比如简单的<code>整型、浮点型、布尔型、char、等</code>，也有复杂的一些类型，我们还可以自己创建类型。</p>
+<h1 id="基本类型"><a class="header" href="#基本类型">基本类型</a></h1>
+<p>上面介绍的简单类型就是基本类型，我们先从整型开始介绍。整型，浮点类型都可以分为有符号和无符号类型。符号是指有无<code>+、-</code>。所以有符号的数可以是正负数，而无符号的只能是正数。</p>
+<h2 id="整型"><a class="header" href="#整型">整型</a></h2>
+<p>有符号： <code>i8</code> <code>i16</code> <code>i32</code> <code>i64</code> <code>isize</code></p>
+<p>无符号： <code>u8</code> <code>u16</code> <code>u32</code> <code>u64</code> <code>usize</code></p>
+<p>i 和 u 表示是否有符号 后面跟的数字表示该数字的位数，数字越大，可以表示的值越大。默认类型是i32。</p>
+<p><code>如： u8的值范围0~255 u16的值范围0~65535</code></p>
+<p><code>isize</code>和<code>usize</code>代表的是你电脑的位数，如果你的电脑是32位的，那么就相当于i32和u32,64位的就是i64和u64。</p>
+<h2 id="char"><a class="header" href="#char">char</a></h2>
+<p>Rust中的字符类型是char，后面我们还会介绍到另一种字符类型String。
+char类型的大小为四个字节，并代表了一个Unicode标量值，它可以表示很多内容，表情，中日韩文，空白字符都是有效的。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = ' '; 
+    let b = '🌙';
+    let c = '啊';
+    let d = 'D';
+    println!(&quot;a is {}, b is {}, c is {}, d is {}&quot;, a, b, c, d);
+}
+</code></pre></pre>
+<h2 id="浮点型"><a class="header" href="#浮点型">浮点型</a></h2>
+<p>Rust中小数数字有两种浮点类型可以表示，分别是<code>f32</code>和<code>f64</code>，分别占32位和64位，默认类型是f64。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 3.2; //64位  精度更高
+    let y: f32 = 6.4; //32位
+    println!(&quot;x is {}, y is {}&quot;, x, y);
+}
+</code></pre></pre>
+<h2 id="布尔类型"><a class="header" href="#布尔类型">布尔类型</a></h2>
+<p>Rust中布尔值有两个可能的值：<code>true</code>和<code>false</code>，布尔类型用<code>bool</code>表示。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let t = true;
+    let f: bool = false;
+    println!(&quot;t is {}, f is {}&quot;, t, f);
+}
+</code></pre></pre>
+<h1 id="复合类型"><a class="header" href="#复合类型">复合类型</a></h1>
+<p>复合类型可以将多个值组合成一个类型。Rust有两个原生的复合类型：元组（tuple）和数组（array）。</p>
+<h2 id="元组"><a class="header" href="#元组">元组</a></h2>
+<p>元组是一个将多个其他类型的值组合进一个复合类型的主要方式。元组长度固定：一旦声明，其长度不会增大或缩小。 我们使用包含在圆括号中的逗号分隔的值列表来创建一个元组。元组中的每一个位置都有一个类型，而且这些不同值的类型也不必是相同的。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let tup: (i32, f64, bool) = (1, 2.2, true);  //使用了类型注解 显式的声明每个值对应的类型
+    let tup1 = (2.2, 3, false); //如果不使用类型注解，则会使用默认的类型 （f64,i32,bool）
+    println!(&quot;tup is {:?}, tup1 is {:?}&quot;, tup, tup1);
+}
+</code></pre></pre>
+<h3 id="如何获取元组里的值"><a class="header" href="#如何获取元组里的值">如何获取元组里的值</a></h3>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let tup = (1, 2, 3);
+    let (x, y, z) = tup;  //解构 将元组分成三个不同的变量
+    println!(&quot;x is {}&quot;, x);
+
+    //还可以通过`.`后面跟值的索引来访问它们
+    //元组的第一个元素索引是0
+    let tup = (0, 1, 2);
+    let x = tup.0;
+    let y = tup.1;
+    let z = tup.2;
+    println!(&quot;x is {}, y is {}, z is {}&quot;, x, y, z);
+}
+</code></pre></pre>
+<h2 id="数组"><a class="header" href="#数组">数组</a></h2>
+<p>数组中也包含多个值，不过里面值的类型必须统一，不可以是多个类型，一旦声明，它的长度和类型也是不可以改变的。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let arr = [0,1,2,3,4,5];
+    println!(&quot;arr is {:?}&quot;, arr);
+    
+    //通过索引获取指定值 索引从0开始
+    let a = arr[0];
+    println!(&quot;a is {}&quot;, a);
+    
+    let x: [i32;5] = [1,2,3,4,5]; //数组里面元素都是i32类型，并且长度为5
+    
+    let y = [1;5]; //数组里面所有元素都为1，长度为5
+    
+    println!(&quot;x is {:?}, y is {:?}&quot;, x, y);
+}
+</code></pre></pre>
+<h1 id="类型推导"><a class="header" href="#类型推导">类型推导</a></h1>
+<p>Rust是静态类型语言，所以编译器在编译的时候都必须知道变量的类型，但这并不意味着所有的变量都需要进行类型注解，它会自己推导是什么类型。</p>
+<ul>
+<li>
+<p><strong>只有在它不知道变量是什么类型的时候</strong></p>
+</li>
+<li>
+<p><strong>或者你指定变量类型的时候需要进行类型注解</strong></p>
+</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 100; //i32类型
+    println!(&quot;a is {}&quot;, a);
+    let a: i64 = 100; //i64类型  我想它是i64类型 这时候我们在变量名后面加`:` 以及对应的类型
+    //还可以这么表示
+    println!(&quot;a is {}&quot;, a);
+    let a = 100u8; //u8类型
+    println!(&quot;a is {}&quot;, a);
+    let a = 100_u8; //_在数字中只增加可读性 并不会影响数字的值
+    println!(&quot;a is {}&quot;, a);
+    let a = 100_000;
+    println!(&quot;a is {}&quot;, a);
+    
+    //我们还可以使用as关键字进行类型转换
+    let a = 10.2; //默认f64
+    let b = 10.2f32 as f64;
+    println!(&quot;a + b is {}&quot;, a+b);
+    
+    //加减乘除运算类型必须一致，如果不一致会导致编译不通过，但你不需要所有变量类型都进行注解。
+    // 你只需要对一个变量进行类型注解，编译器会帮你推导出其他的变量类型。
+    let a = 10u8;
+    let b = 20; //不进行类型注解，通常这个时候默认i32类型
+    let c = a + b ; //这个时候 要进行相加 类型一致 ，所以a,b,c都选择了u8类型
+    println!(&quot;c is {}&quot;, c);
+}
+</code></pre></pre>
+<h2 id="常量"><a class="header" href="#常量">常量</a></h2>
+<p>我们之前讲变量它默认是不可以改变的，这其实和我们接触过的常量类似，但常量和变量区别还是有的。</p>
+<ul>
+<li>
+<p>首先声明常量不是用<code>let</code>关键字而是用<code>const</code>。</p>
+</li>
+<li>
+<p>同时命名习惯我们将常量所有字母都大写，如果存在多个单词我们使用<code>_</code>来分隔增加可读性。</p>
+</li>
+<li>
+<p>必须显式的标注常量的类型，它不会自动推导类型。</p>
+</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    const MAX_POINT: i32 = 100;  // 类型注解不能省略
+    println!(&quot;MAX_POINT is {}&quot;, MAX_POINT);
+}
+</code></pre></pre>
+<h1 id="函数"><a class="header" href="#函数">函数</a></h1>
+<p><code>main</code>函数是最重要的一个函数，它是很多程序的入口点，我们也可以通过<code>fn</code>关键字来声明一个新的函数。</p>
+<h2 id="声明一个新的函数"><a class="header" href="#声明一个新的函数">声明一个新的函数</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    print_hello();
+}
+
+fn print_hello() {  //打印hello函数 无参数无返回值
+    println!(&quot;hello&quot;);
+}
+</code></pre></pre>
+<h2 id="声明一个带有参数的函数"><a class="header" href="#声明一个带有参数的函数">声明一个带有参数的函数</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let args = &quot;Arg&quot;;
+    print_args(args);
+}
+
+fn print_args(args: &amp;str) {  //显式的声明传递参数的类型
+    println!(&quot;args is {}&quot;, args);
+}
+</code></pre></pre>
+<h2 id="语句和表达式"><a class="header" href="#语句和表达式">语句和表达式</a></h2>
+<p>Rust是基于<code>表达式</code>的语言，在Rust中语句代表执行一系列指令操作，但没有返回值，表达式是计算并返回一个值。</p>
+<h2 id="声明一个带有返回值的函数"><a class="header" href="#声明一个带有返回值的函数">声明一个带有返回值的函数</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let r = return_values();
+    println!(&quot;r is {}&quot;, r);
+}
+
+fn return_values() -&gt; &amp;'static str {  //显式的生命返回值的类型 
+    //'static我们在生命周期中再继续讨论，有时候程序会自动推导生命周期，有时候却不能省略
+    &quot;Return_values&quot;  //不可以加; 加;就是语句了，并没有返回值
+}
+</code></pre></pre>
+<h2 id="声明一个带有参数和返回值的函数"><a class="header" href="#声明一个带有参数和返回值的函数">声明一个带有参数和返回值的函数</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s = &quot;A&quot;.to_string();
+    let g = take_and_give(&amp;s);
+    println!(&quot;g is {}&quot;, g);
+}
+
+fn take_and_give(s: &amp;str) -&gt; &amp;str {
+    s
+}
+</code></pre></pre>
+<h1 id="控制流"><a class="header" href="#控制流">控制流</a></h1>
+<h2 id="if-else"><a class="header" href="#if-else">if-else</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 1;
+    if a &gt; 0 {
+        println!(&quot;{} &gt; 0&quot;, a);
+    } else { println!(&quot;{} &lt;= 0&quot;, a) }
+
+    //else if 
+
+    let a = 10;
+    if a &gt; 11 {
+        println!(&quot;a &gt; 11&quot;);
+    } else if a &gt; 13 {
+        println!(&quot;a &gt; 13&quot;);
+    } else if a &gt; 8 {
+        println!(&quot;a &gt; 8&quot;);   
+        //当有判断为真了，就跳出判断，不会再进行下面的判断了
+    } else if a &gt; 9 {   
+        println!(&quot;a &gt; 9&quot;);
+    }
+}
+</code></pre></pre>
+<h2 id="loop"><a class="header" href="#loop">loop</a></h2>
+<p>一直循环，直至我们要求它停止。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut counter = 0;
+    let counter = loop {
+        counter += 1;
+        if counter == 5 {
+            break counter
+        }
+    };
+    println!(&quot;counter is {}&quot;, counter);
+}
+</code></pre></pre>
+<h2 id="while"><a class="header" href="#while">while</a></h2>
+<p>有条件的循环，当条件为真则执行循环，假则停止循环。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut a = 10;
+    while a &gt; 0 {
+        println!(&quot;a is {}&quot;, a);
+        a -= 1;
+    }
+}
+</code></pre></pre>
+<h2 id="for"><a class="header" href="#for">for</a></h2>
+<p>循环遍历集合中的元素</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let arr = [1,2,3,4,5];
+    for element in arr.iter() {
+        println!(&quot;element is {}&quot;, element);
+    }
+}
+</code></pre></pre>
+<h2 id="rang"><a class="header" href="#rang">Rang</a></h2>
+<p>Range是标准库提供的类型，生成一个数字开始到另一个数字之前结束的序列。<code>前闭后开</code>
+<code>形式（0..10） </code>一对括号也可以省略。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    for i in 0..10 {
+        println!(&quot;i is {}&quot;, i);
+    }
+}
+</code></pre></pre>
+<h1 id="shadowing"><a class="header" href="#shadowing">Shadowing</a></h1>
+<p>我们之前介绍变量默认是不可以改变的，我们可以通过<code>mut</code>关键字来使其改变值，但它的类型依旧是不可以改变的。</p>
+<p>在Rust中我们可以使用Shadowing，它通过使用<code>let</code>关键字声明一个新变量它与之前的变量同名，它看起来是可变的，可以修改其值甚至是类型，但是它与mut完全不同。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 5;
+    println!(&quot;x is {}&quot;, x);
+    let x = 'A';
+    println!(&quot;x is {}&quot;, x);
+    {
+        let x = true;
+        println!(&quot;x is {}&quot;, x);
+    }
+    println!(&quot;x is {}&quot;, x);   //Shadowing并不销毁了之前的同名变量而是隐藏了。
+}
+</code></pre></pre>
+<br/>
+什么时候使用Shadowing?当我们需要经常改变同一个变量的时候，我们使用它是很方便的，也要根据一些实际情况来。<h1 id="所有权"><a class="header" href="#所有权">所有权</a></h1>
+<p>所有权是Rust最与众不同的特性，所有权系统使Rust具有高效且安全的特性。</p>
+<p>一些编程语言管理内容是通过<code>垃圾回收机制</code>,而另一些是程序员亲自<code>分配和释放内存</code>。</p>
+<p>这两种都有缺点，所以Rust采取了所有权机制。</p>
+<h1 id="堆栈和指针"><a class="header" href="#堆栈和指针">堆、栈和指针</a></h1>
+<h2 id="栈"><a class="header" href="#栈">栈</a></h2>
+<p>栈以放入值的顺序存储值，并以相反的顺序的取出值。     --<code>后进先出</code>
+栈上的数据必须是<code>固定大小</code>的。</p>
+<h2 id="堆"><a class="header" href="#堆">堆</a></h2>
+<p>当存储的<code>数据大小未知或者可变</code>的则要放在堆上。</p>
+<h2 id="对比"><a class="header" href="#对比">对比</a></h2>
+<p>入栈要比在堆上分配内存要快，访问栈上的数据同样比访问堆上的数据要快。</p>
+<h2 id="指针"><a class="header" href="#指针">指针</a></h2>
+<p>指针大小已知且固定的，所以它存储在栈上。</p>
+<p>操作系统在堆的某处找到一块足够大的空位，把它标记为已使用，并返回一个表示该位置地址的指针。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s = String::from(&quot;hello&quot;);
+}
+</code></pre></pre>
+<p><img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210315220741.png" alt="" /></p>
+<h1 id="copy-and-clone"><a class="header" href="#copy-and-clone">Copy and Clone</a></h1>
+<h2 id="内存分配"><a class="header" href="#内存分配">内存分配</a></h2>
+<p>如下图所示，堆中的数据在Rust中不会主动进行深拷贝。</p>
+<p><img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210315224830.png" alt="" /></p>
+<p>当堆上的一个变量的值绑定到另一个变量上时，使第一个变量无效，这个操作称作移动，第二个变量离开作用域时，调用drop，释放内存。</p>
+<p><img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210315230214.png" alt="" /></p>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let s1 = String::from(&quot;hello&quot;);
+    println!(&quot;s1 is {}&quot;, s1);
+    let s2 = s1; //当s1赋值给s2后 s1 不再有效 我们不能再使用s1
+    println!(&quot;s1 is {}&quot;, s1);
+    println!(&quot;s2 is {}&quot;, s2);
+}  //s2离开作用域 自动调用drop 释放内存
+</code></pre>
+<h2 id="copy-trait"><a class="header" href="#copy-trait">Copy trait</a></h2>
+<p>如果一个类型实现了<code>Copy trait</code>,则其值离开作用域后不会进行处理。之前介绍的基本类型都实现了<code>Copy trait</code>，因为它们在栈上，不存在深浅拷贝的区别。如果元组中所有元素都实现了<code>Copy trait</code>，那么元组也实现了<code>Copy trait</code>，它在离开作用域后也不会进行处理。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 1;  //声明变量x 绑定到1上
+    let y= x ; //声明变量y 将x的值拷贝绑定到y上
+    println!(&quot;x is {}, y is {}&quot;, x, y);
+}
+</code></pre></pre>
+<h2 id="clone"><a class="header" href="#clone">Clone</a></h2>
+<p>如果你想深拷贝，我们可以使用<code>clone</code>这个通用函数。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = &quot;hello&quot;.to_string();
+    let s2 = s1.clone(); //深拷贝
+    println!(&quot;s1 is {}, s2 is {}&quot;, s1, s2);
+}  //s1 和 s2 离开作用域 调用drop 失效
+</code></pre></pre>
+<h1 id="所有权在函数中的应用"><a class="header" href="#所有权在函数中的应用">所有权在函数中的应用</a></h1>
+<p>所有权在函数中的应用我们使用代码说明</p>
+<ul>
+<li>
+<p>获取所有权</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let name = String::from(&quot;Adam&quot;);
+    let age = 18;
+    takes_ownership(name);
+    makes_copy(age);
+    //println!(&quot;name is {}&quot;, name);  name被函数调用后不可以再次使用了
+    println!(&quot;age is {}&quot;, age);
+}
+fn takes_ownership(name: String) {
+    println!(&quot;The author's name is {}&quot;, name); 
+}  //name传进来后，离开作用域 调用drop 释放内存 name被函数调用后不可以再次使用了
+
+fn makes_copy(age: i32) {
+      println!(&quot;The author's age is {}&quot;, age);
+}    //不进行任何操作 因为有`Copy trait` age 之后还可以使用
+</code></pre></pre>
+</li>
+<li>
+<p>转移所有权</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+  let name = String::from(&quot;Adam&quot;);
+  let author_name = takes_and_gives(name);
+  //name 此刻无效了 不能再调用了
+  //println!(&quot;name is {}&quot;, name);
+  println!(&quot;The author's name is {}&quot;, author_name);
+  let a = gives_ownership();
+  println!(&quot;a is {}&quot;, a);
+}
+
+fn gives_ownership() -&gt; String {
+  let a = &quot;A&quot;.to_string();  //a 进入作用域
+  a      //将所有权转移给调用的函数
+}
+
+fn takes_and_gives(name: String) -&gt; String {  //name进入作用域 
+  name //将所有权移出给调用的函数
+}
+</code></pre></pre>
+</li>
+</ul>
+<h1 id="引用和可变引用"><a class="header" href="#引用和可变引用">引用和可变引用</a></h1>
+<p>引用的符号是<code>&amp;</code>，可变引用的符号是<code>&amp;mut</code>。</p>
+<h2 id="引用"><a class="header" href="#引用">引用</a></h2>
+<p>引用允许我们使用其值，但不获得其所有权
+<img src="https://jack1.oss-cn-shanghai.aliyuncs.com/img/20210316160222.png" alt="" /></p>
+<p>引用的规则
++ 在任意给定时间，要么 只能有一个可变引用，要么 只能有多个不可变引用。
++ 引用必须总是有效的。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;hello&quot;);
+    let s = &amp;s1; //创建它的引用
+    let length = calculate_length(s);
+    println!(&quot;length is {} , s1 is {}&quot;, length, s1);
+}
+
+fn calculate_length(s: &amp;str) -&gt; usize {
+    s.len()
+}  //因为s没有所有权，所以离开作用域不进行任何操作
+</code></pre></pre>
+<h2 id="借用"><a class="header" href="#借用">借用</a></h2>
+<p>我们将获取引用将其作为函数的参数称为<code>借用</code>。</p>
+<h2 id="可变引用"><a class="header" href="#可变引用">可变引用</a></h2>
+<p>引用默认是不可以修改引用的值，但是我们可以通过在引用后面加<code>mut</code>关键字来修改。首先我们要创建一个可变的变量，然后创建一个可变的引用。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut s1 = String::from(&quot;hello&quot;);
+    let s = &amp;mut s1; //创建它的引用
+    s.push_str(&quot;,world&quot;);
+    let length = calculate_length(s);
+    println!(&quot;length is {} , s1 is {}&quot;, length, s1);
+}
+
+fn calculate_length(s: &amp;mut str) -&gt; usize {
+    s.len()
+}  //因为s没有所有权，所以离开作用域不进行任何操作
+</code></pre></pre>
+<h1 id="slices"><a class="header" href="#slices">Slices</a></h1>
+<p><code>Slice</code>是引用之外另一种没有所有权的数据类型，它引用集合中的一段连续的元素，而并不需要引用整个集合。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [1,2,3,4,5];
+    let a1 = &amp;a[..2];
+    println!(&quot;a1 is {:?}&quot;, a1);
+}
+</code></pre></pre>
+<h1 id="结构体"><a class="header" href="#结构体">结构体</a></h1>
+<p>我们可以使用<code>struct</code>关键字来定义结构体，结构体使我们可以创建自己的类型。
+结构体的命名采用大驼峰的形式</p>
+<h2 id="结构体的三种形式"><a class="header" href="#结构体的三种形式">结构体的三种形式</a></h2>
+<pre><pre class="playground"><code class="language-rust">//没有名字和类型的单元结构 
+struct Person; //定义单元结构我们只需要定义一下结构体的名字
+
+//没有名字只有类型的元组结构
+struct Point (u8, u8, u8);
+
+//常见的命名的结构
+#[derive(Debug)]
+struct People {
+    name: String,  //两个字段之间用,分隔 最后一个字段可写可不写
+    age: u8,    //定义了字段名和类型
+}
+
+//如果字段名和变量名一致的话，我们可以省略不用写两遍
+
+fn main() {
+    let name = &quot;Adam&quot;.to_string();
+    let age = 18u8;
+    
+    let p1 = People {
+      name,
+      age,
+    };
+    println!(&quot;p1 is {:#?}&quot;, p1);
+}
+
+</code></pre></pre>
+<h1 id="枚举"><a class="header" href="#枚举">枚举</a></h1>
+<p>枚举的定义和结构体的定义类似只是关键字换成了<code>enum</code>。</p>
+<pre><pre class="playground"><code class="language-rust">enum Color {
+    Black,
+    White,   //用到枚举时我们必须要使用其中的一个
+    Red,   //变体
+}
+
+fn choose_color(color: &amp;Color) {
+    match color {
+        Color::Black =&gt; println!(&quot;Color is black!&quot;),
+        _ =&gt; println!(&quot;Color is other!&quot;),
+    }
+}
+
+fn main() {
+    let black = Color::Black;
+    choose_color(&amp;black);
+}
+</code></pre></pre>
+<h1 id="实现结构体和枚举"><a class="header" href="#实现结构体和枚举">实现结构体和枚举</a></h1>
+<p>如果我们要打印结构体和枚举我们要给它们一个<code>Debug</code>的方法。</p>
+<p>常规方法： 这些方法取它自己本身：<code>（self &amp;self &amp;mut self）</code>  写法使用<code>.</code>后跟方法名 </p>
+<p>关联方法：这些方法不用self 写法是用<code>::</code></p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+struct Person {
+    name: String,
+    age: u8,
+    is_man: bool,
+    person_kind: PersonKind,
+}
+
+#[derive(Debug)]
+enum PersonKind {
+    YelloRace,
+    BlackRace,
+    WhiteRace,
+}
+
+impl Person {
+    fn new() -&gt; Self { 
+        Self {
+           name: &quot;Adam&quot;.to_string(),
+           age: 18,
+           is_man: true,
+           person_kind: PersonKind::YelloRace, 
+        }
+    }
+
+    fn change_yello(&amp;mut self) {
+        println!(&quot;Change to black&quot;);
+        self.person_kind = PersonKind::BlackRace;
+    }
+}
+
+fn main() {
+    let mut p1 = Person::new();   //关联方法
+    println!(&quot;p1 is {:?}&quot;, p1);
+    p1.change_yello(); //常规方法
+    println!(&quot;p1 is {:?}&quot;, p1);
+}
+
+    
+</code></pre></pre>
+<h1 id="泛型"><a class="header" href="#泛型">泛型</a></h1>
+<p>泛型在其他语言也是接触过的，rust中使用<code>&lt;T&gt;</code>来代表一个范围，T可以换成任何字母，不过我们倾向于简单的大写字母。</p>
+<pre><pre class="playground"><code class="language-rust">//函数名后跟的&lt;T&gt;一定不能省略，他告诉函数传递和返回的值是一个泛型
+// 而不是我们在其他地方定义的一个类型
+fn print_num&lt;T&gt;(num: T) -&gt; T 
+    where T: std::fmt::Display  //为T实现Display
+    {
+        println!(&quot;Number is {}&quot;, num);
+        num
+    }
+
+fn main() {
+    let num = print_num(32i32);
+    println!(&quot;Number is {}&quot;, num);
+    let num = print_num(8u8);
+    println!(&quot;Number is {}&quot;, num);
+    let num = print_num(2.6f64);
+    println!(&quot;Number is {}&quot;, num);
+}
+</code></pre></pre>
+<h2 id="结构体枚举方法中定义泛型"><a class="header" href="#结构体枚举方法中定义泛型">结构体枚举方法中定义泛型</a></h2>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+#[derive(Debug)]
+struct Color&lt;T, U&gt; {
+    black: T,
+    red: U,
+}
+
+#[derive(Debug)]
+enum AnimalKind&lt;T&gt; {
+    Dog(T),
+    Cat(T),
+}
+
+impl&lt;T&gt; Point&lt;T&gt; {
+    fn return_x(&amp;self) -&gt; &amp;T {
+        &amp;self.x
+    }
+}
+
+fn main() {
+    let point = Point {
+        x: 1.2,
+        y: 2.3,
+    };
+    
+    let x = point.return_x();
+    println!(&quot;x is {:?}&quot;, x);
+}
+
+</code></pre></pre>
+<h1 id="option"><a class="header" href="#option">Option</a></h1>
+<p>当一个值可能存在或者不存在的时候我们可以使用<code>Option</code>这个枚举。
+Rust 通过在编译时进行泛型代码的 单态化（monomorphization）来保证效率。单态化是一个通过填充编译时使用的具体类型，将通用代码转换为特定代码的过程。</p>
+<pre><pre class="playground"><code class="language-rust">
+/*enum Option {
+    Some(),
+    None,
+    }
+ */
+fn main() {
+    let v = vec![1,2,3,4,5];
+    println!(&quot;v is {:?}&quot;, v);
+    
+    //单态化
+    let integer = Some(5);  //Option&lt;i32&gt;
+    let float = Some(5.0);   
+    println!(&quot;Integer is {:?}, float is {:?}&quot;, integer, float);
+    if let Some(5) = integer {
+        println!(&quot;Five&quot;);
+    }
+    
+    match integer {
+        Some(v) =&gt; println!(&quot;{}&quot;,v),
+        None =&gt; println!(&quot;None&quot;),
+    }
+}
+</code></pre></pre>
+<h2 id="is_some和is_none"><a class="header" href="#is_some和is_none">is_some和is_none</a></h2>
+<p>我们可以通过<code>is_some()</code>和<code>is_none()</code>这两个简单的方法来判断它们是否是Some或者None</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = Some(1);
+    println!(&quot;a is Some : {}&quot;, a.is_some());
+    
+    let b = Some(7.9);
+    println!(&quot;b is Some : {}&quot;, b.is_some());
+    println!(&quot;b is None : {}&quot;, b.is_none());
+}
+</code></pre></pre>
+<h1 id="result"><a class="header" href="#result">Result</a></h1>
+<p><code>Result</code>和<code>Option</code>类似，不过它的结果是<code>OK</code>或者<code>Err</code></p>
+<p>enum Result&lt;T, E&gt; {   //T和E表示OK返回T Err返回E
+Ok(T), 
+Err(E),
+}</p>
+<p><code>在Result中也有类似于Option的简单判断方法,分别是is_ok()和is_err()方法</code></p>
+<pre><pre class="playground"><code class="language-rust">fn give_result(i: i32) -&gt; Result&lt;(), ()&gt; {
+    if i % 2 == 0 {
+        Ok(())
+    }else {
+        Err(())
+    }
+}
+
+fn main() {
+    let i = 12;
+    if give_result(i).is_ok() {
+        println!(&quot;It's Ok!&quot;);
+    }else {
+        println!(&quot;It's Err&quot;);
+    }
+    let j = 11;
+    if give_result(j).is_err() {
+        println!(&quot;It's Err!&quot;);
+    }else {
+        println!(&quot;It's Ok&quot;);
+    }
+}
+
+</code></pre></pre>
+<h1 id="hashmap和其他集合"><a class="header" href="#hashmap和其他集合">HashMap和其他集合</a></h1>
+<p>HashMap是由keys和values组成的集合。你使用键来查找与键匹配的值。你可以只用<code>HashMap::new()</code>创建一个新的HashMap，并使用<code>.insert(key, value)</code>来插入元素。</p>
+<p>可以通过<code>get</code>方法来获取到对应的值，它会返回一个<code>Option</code>,如果<code>存在则返回Some(value)</code>,如果<code>不存在则返回None</code>。
+<code>entry</code>来检查键是否绑定了一个值，结合<code>or_insert</code>如果只有键，没有对应的值则插入。这个键可以不存在也可以没有相关联的值。</p>
+<p>我们可以根据一个旧值来更新一个值，<code>or_insert</code>方法会返回这个键对应的值是一个可变引用，我们更新它的值先将它解引用，进行更新</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
+    let mut collections = HashMap::new();
+    collections.insert(1, &quot;Beijing&quot;.to_string());
+    collections.insert(2, &quot;Shanghai&quot;.to_string());
+    collections.insert(3, &quot;Hangzhou&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+    //HashMap里面的值是无序的，同时打印它们多次打印出现的顺序可能都不同
+    //{2: &quot;Shanghai&quot;, 3: &quot;Hangzhou&quot;, 1: &quot;Beijing&quot;}
+    //{3: &quot;Hangzhou&quot;, 1: &quot;Beijing&quot;, 2: &quot;Shanghai&quot;}
+
+    //如果HashMap有一个键，我们将它放进去时，它会覆盖原来的值
+    collections.insert(1, &quot;Nanjing&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+    //{1: &quot;Nanjing&quot;, 3: &quot;Hangzhou&quot;, 2: &quot;Shanghai&quot;}
+    collections.entry(1).or_insert(&quot;Chongqing&quot;.to_string()); //有值不插入
+    println!(&quot;{:?}&quot;, collections);
+
+    collections.entry(4).or_insert(&quot;Sanya&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+
+    let text = &quot;hello world wonderful world&quot;;
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+    println!(&quot;map is {:?}&quot;, map);
+    let a = collections.get(&amp;1);
+    println!(&quot;a is {:?}&quot;, a);
+}
+
+</code></pre></pre>
+<h1 id="其他集合"><a class="header" href="#其他集合">其他集合</a></h1>
+<p>BTreeMap 和 HashMap 的区别是它是有序的，而HashMap是无序的。</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::BTreeMap;
+fn main() {
+    //将HashMap替换成BTreeMap
+    let mut collections = BTreeMap::new();
+    collections.insert(1, &quot;Beijing&quot;.to_string());
+    collections.insert(2, &quot;Shanghai&quot;.to_string());
+    collections.insert(3, &quot;Hangzhou&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+    //  打印结果 BTreeMap会按顺序打印
+    //{1: &quot;Beijing&quot;, 3: &quot;Hangzhou&quot;, 2: &quot;Shanghai&quot;}
+    // {1: &quot;Beijing&quot;, 2: &quot;Shanghai&quot;, 3: &quot;Hangzhou&quot;}
+    
+}
+</code></pre></pre>
+<h2 id="hashset和btreeset"><a class="header" href="#hashset和btreeset">HashSet和BTreeSet</a></h2>
+<p>HashSet实际上是只有<code>key</code>的HashMap,同理BtreeSet。 它有键没有值。</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
+    let mut map = HashSet::new();
+    let v = vec![ 94, 42, 59, 64, 32, 22, 38, 5, 59, 49, 15, 89, 74, 29, 14, 68, 82, 80, 56, 41, 36, 81, 66,
+                  51, 58, 34, 59, 44, 19, 93, 28, 33, 18, 46, 61, 76, 14, 87, 84, 73, 71, 29, 94, 10, 35, 20,
+                  35, 80, 8, 43, 79, 25, 60, 26, 11, 37, 94, 32, 90, 51, 11, 28, 76, 16, 63, 95, 13, 60, 59,
+                  96, 95, 55, 92, 28, 3, 17, 91, 36, 20, 24, 0, 86, 82, 58, 93, 68, 54, 80, 56, 22, 67, 82,];
+
+    for i in v {
+        map.insert(i);
+    }
+
+    let length = map.len();
+    println!(&quot;一共有{}不同的数字,错失了{}个&quot;,length,100-length);
+
+    let mut missing_vex = Vec::new();
+    for number in 0..100 {
+        if map.get(&amp;number).is_none(){
+            missing_vex.push(number);
+        }
+    }
+    println!(&quot;错失的数字有： {:?}&quot;, missing_vex);
+}
+
+</code></pre></pre>
+<h2 id="binaryheap"><a class="header" href="#binaryheap">BinaryHeap</a></h2>
+<p><code>BinaryHeap</code>是一个有趣的集合，它会把最大的一个元素放在第一个，其他的元素无序排列。</p>
+<pre><pre class="playground"><code class="language-rust">
+use std::collections::BinaryHeap;
+
+fn show_remain(i: &amp;BinaryHeap&lt;i32&gt;) -&gt; Vec&lt;i32&gt; {
+    let mut v = Vec::new();
+    for number in i {
+        v.push(*number);
+    }
+    v
+}
+
+fn main() {
+
+    let some_numbers = vec![1,4,7,90,70,88,68,92,40,54];
+    let mut heap = BinaryHeap::new();
+    for number in some_numbers {
+        heap.push(number);
+    }
+    while let Some(n) = heap.pop() {
+        println!(&quot;移除的是{},保留后的为{:?}&quot;,n,show_remain(&amp;heap));
+    }
+}
+
+</code></pre></pre>
+<p><code>输出结果：</code></p>
+<pre><code class="language-shell">移除的是92,保留后的为[90, 70, 88, 40, 54, 4, 68, 1, 7]
+移除的是90,保留后的为[88, 70, 68, 40, 54, 4, 7, 1]
+移除的是88,保留后的为[70, 54, 68, 40, 1, 4, 7]
+移除的是70,保留后的为[68, 54, 7, 40, 1, 4]
+移除的是68,保留后的为[54, 40, 7, 4, 1]
+移除的是54,保留后的为[40, 4, 7, 1]
+移除的是40,保留后的为[7, 4, 1]
+移除的是7,保留后的为[4, 1]
+移除的是4,保留后的为[1]
+移除的是1,保留后的为[]
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

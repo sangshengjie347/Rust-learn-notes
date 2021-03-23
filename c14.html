@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HashMap和其他集合 - 快速入手Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="update.html">更新说明</a></li><li class="chapter-item expanded "><a href="c1.html"><strong aria-hidden="true">1.</strong> 基础介绍</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c1.1.html"><strong aria-hidden="true">1.1.</strong> 安装Rust</a></li><li class="chapter-item expanded "><a href="c1.2.html"><strong aria-hidden="true">1.2.</strong> 换源安装</a></li><li class="chapter-item expanded "><a href="c1.3.html"><strong aria-hidden="true">1.3.</strong> 在线开发</a></li></ol></li><li class="chapter-item expanded "><a href="c3.html"><strong aria-hidden="true">2.</strong> Hello,world!</a></li><li class="chapter-item expanded "><a href="c7.html"><strong aria-hidden="true">3.</strong> 使用Clion、Pycharm、IDEA进行开发</a></li><li class="chapter-item expanded "><a href="c4.html"><strong aria-hidden="true">4.</strong> 打印</a></li><li class="chapter-item expanded "><a href="c2.html"><strong aria-hidden="true">5.</strong> 常见的编程概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c2.1.html"><strong aria-hidden="true">5.1.</strong> 注释</a></li><li class="chapter-item expanded "><a href="c2.2.html"><strong aria-hidden="true">5.2.</strong> 变量</a></li><li class="chapter-item expanded "><a href="c2.3.html"><strong aria-hidden="true">5.3.</strong> 类型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c2.3.1.html"><strong aria-hidden="true">5.3.1.</strong> 基本类型</a></li><li class="chapter-item expanded "><a href="c2.3.2.html"><strong aria-hidden="true">5.3.2.</strong> 复合类型</a></li><li class="chapter-item expanded "><a href="c2.3.3.html"><strong aria-hidden="true">5.3.3.</strong> 类型推导</a></li></ol></li><li class="chapter-item expanded "><a href="c2.4.html"><strong aria-hidden="true">5.4.</strong> 函数</a></li><li class="chapter-item expanded "><a href="c2.5.html"><strong aria-hidden="true">5.5.</strong> 控制流</a></li></ol></li><li class="chapter-item expanded "><a href="c5.html"><strong aria-hidden="true">6.</strong> Shadowing</a></li><li class="chapter-item expanded "><a href="c6.html"><strong aria-hidden="true">7.</strong> 所有权</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c6.1.html"><strong aria-hidden="true">7.1.</strong> 堆、栈和指针</a></li><li class="chapter-item expanded "><a href="c6.2.html"><strong aria-hidden="true">7.2.</strong> Copy and Clone</a></li><li class="chapter-item expanded "><a href="c6.3.html"><strong aria-hidden="true">7.3.</strong> 所有权在函数中的应用</a></li><li class="chapter-item expanded "><a href="c6.4.html"><strong aria-hidden="true">7.4.</strong> 引用和可变引用</a></li><li class="chapter-item expanded "><a href="c6.5.html"><strong aria-hidden="true">7.5.</strong> Slices</a></li></ol></li><li class="chapter-item expanded "><a href="c8.html"><strong aria-hidden="true">8.</strong> 结构体</a></li><li class="chapter-item expanded "><a href="c9.html"><strong aria-hidden="true">9.</strong> 枚举</a></li><li class="chapter-item expanded "><a href="c10.html"><strong aria-hidden="true">10.</strong> 实现结构体和枚举</a></li><li class="chapter-item expanded "><a href="c11.html"><strong aria-hidden="true">11.</strong> 泛型</a></li><li class="chapter-item expanded "><a href="c12.html"><strong aria-hidden="true">12.</strong> Option</a></li><li class="chapter-item expanded "><a href="c13.html"><strong aria-hidden="true">13.</strong> Result</a></li><li class="chapter-item expanded "><a href="c14.html" class="active"><strong aria-hidden="true">14.</strong> HashMap和其他集合</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">快速入手Rust</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hashmap和其他集合"><a class="header" href="#hashmap和其他集合">HashMap和其他集合</a></h1>
+<p>HashMap是由keys和values组成的集合。你使用键来查找与键匹配的值。你可以只用<code>HashMap::new()</code>创建一个新的HashMap，并使用<code>.insert(key, value)</code>来插入元素。</p>
+<p>可以通过<code>get</code>方法来获取到对应的值，它会返回一个<code>Option</code>,如果<code>存在则返回Some(value)</code>,如果<code>不存在则返回None</code>。
+<code>entry</code>来检查键是否绑定了一个值，结合<code>or_insert</code>如果只有键，没有对应的值则插入。这个键可以不存在也可以没有相关联的值。</p>
+<p>我们可以根据一个旧值来更新一个值，<code>or_insert</code>方法会返回这个键对应的值是一个可变引用，我们更新它的值先将它解引用，进行更新</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashMap;
+
+fn main() {
+    let mut collections = HashMap::new();
+    collections.insert(1, &quot;Beijing&quot;.to_string());
+    collections.insert(2, &quot;Shanghai&quot;.to_string());
+    collections.insert(3, &quot;Hangzhou&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+    //HashMap里面的值是无序的，同时打印它们多次打印出现的顺序可能都不同
+    //{2: &quot;Shanghai&quot;, 3: &quot;Hangzhou&quot;, 1: &quot;Beijing&quot;}
+    //{3: &quot;Hangzhou&quot;, 1: &quot;Beijing&quot;, 2: &quot;Shanghai&quot;}
+
+    //如果HashMap有一个键，我们将它放进去时，它会覆盖原来的值
+    collections.insert(1, &quot;Nanjing&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+    //{1: &quot;Nanjing&quot;, 3: &quot;Hangzhou&quot;, 2: &quot;Shanghai&quot;}
+    collections.entry(1).or_insert(&quot;Chongqing&quot;.to_string()); //有值不插入
+    println!(&quot;{:?}&quot;, collections);
+
+    collections.entry(4).or_insert(&quot;Sanya&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+
+    let text = &quot;hello world wonderful world&quot;;
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+    println!(&quot;map is {:?}&quot;, map);
+    let a = collections.get(&amp;1);
+    println!(&quot;a is {:?}&quot;, a);
+}
+
+</code></pre></pre>
+<h1 id="其他集合"><a class="header" href="#其他集合">其他集合</a></h1>
+<p>BTreeMap 和 HashMap 的区别是它是有序的，而HashMap是无序的。</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::BTreeMap;
+fn main() {
+    //将HashMap替换成BTreeMap
+    let mut collections = BTreeMap::new();
+    collections.insert(1, &quot;Beijing&quot;.to_string());
+    collections.insert(2, &quot;Shanghai&quot;.to_string());
+    collections.insert(3, &quot;Hangzhou&quot;.to_string());
+    println!(&quot;{:?}&quot;, collections);
+    //  打印结果 BTreeMap会按顺序打印
+    //{1: &quot;Beijing&quot;, 3: &quot;Hangzhou&quot;, 2: &quot;Shanghai&quot;}
+    // {1: &quot;Beijing&quot;, 2: &quot;Shanghai&quot;, 3: &quot;Hangzhou&quot;}
+    
+}
+</code></pre></pre>
+<h2 id="hashset和btreeset"><a class="header" href="#hashset和btreeset">HashSet和BTreeSet</a></h2>
+<p>HashSet实际上是只有<code>key</code>的HashMap,同理BtreeSet。 它有键没有值。</p>
+<pre><pre class="playground"><code class="language-rust">use std::collections::HashSet;
+
+fn main() {
+    let mut map = HashSet::new();
+    let v = vec![ 94, 42, 59, 64, 32, 22, 38, 5, 59, 49, 15, 89, 74, 29, 14, 68, 82, 80, 56, 41, 36, 81, 66,
+                  51, 58, 34, 59, 44, 19, 93, 28, 33, 18, 46, 61, 76, 14, 87, 84, 73, 71, 29, 94, 10, 35, 20,
+                  35, 80, 8, 43, 79, 25, 60, 26, 11, 37, 94, 32, 90, 51, 11, 28, 76, 16, 63, 95, 13, 60, 59,
+                  96, 95, 55, 92, 28, 3, 17, 91, 36, 20, 24, 0, 86, 82, 58, 93, 68, 54, 80, 56, 22, 67, 82,];
+
+    for i in v {
+        map.insert(i);
+    }
+
+    let length = map.len();
+    println!(&quot;一共有{}不同的数字,错失了{}个&quot;,length,100-length);
+
+    let mut missing_vex = Vec::new();
+    for number in 0..100 {
+        if map.get(&amp;number).is_none(){
+            missing_vex.push(number);
+        }
+    }
+    println!(&quot;错失的数字有： {:?}&quot;, missing_vex);
+}
+
+</code></pre></pre>
+<h2 id="binaryheap"><a class="header" href="#binaryheap">BinaryHeap</a></h2>
+<p><code>BinaryHeap</code>是一个有趣的集合，它会把最大的一个元素放在第一个，其他的元素无序排列。</p>
+<pre><pre class="playground"><code class="language-rust">
+use std::collections::BinaryHeap;
+
+fn show_remain(i: &amp;BinaryHeap&lt;i32&gt;) -&gt; Vec&lt;i32&gt; {
+    let mut v = Vec::new();
+    for number in i {
+        v.push(*number);
+    }
+    v
+}
+
+fn main() {
+
+    let some_numbers = vec![1,4,7,90,70,88,68,92,40,54];
+    let mut heap = BinaryHeap::new();
+    for number in some_numbers {
+        heap.push(number);
+    }
+    while let Some(n) = heap.pop() {
+        println!(&quot;移除的是{},保留后的为{:?}&quot;,n,show_remain(&amp;heap));
+    }
+}
+
+</code></pre></pre>
+<p><code>输出结果：</code></p>
+<pre><code class="language-shell">移除的是92,保留后的为[90, 70, 88, 40, 54, 4, 68, 1, 7]
+移除的是90,保留后的为[88, 70, 68, 40, 54, 4, 7, 1]
+移除的是88,保留后的为[70, 54, 68, 40, 1, 4, 7]
+移除的是70,保留后的为[68, 54, 7, 40, 1, 4]
+移除的是68,保留后的为[54, 40, 7, 4, 1]
+移除的是54,保留后的为[40, 4, 7, 1]
+移除的是40,保留后的为[7, 4, 1]
+移除的是7,保留后的为[4, 1]
+移除的是4,保留后的为[1]
+移除的是1,保留后的为[]
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="c13.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="c13.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
